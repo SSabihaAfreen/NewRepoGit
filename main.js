@@ -1,7 +1,7 @@
-var form = document.getElementById('addForm');
-var itemList = document.getElementById('items');
-var filter = document.getElementById('filter');
-
+const form = document.getElementById('addForm');
+const item = document.getElementById('items');
+const itemList = document.getElementsByClassName('list-group-item');
+const filter=document.getElementById('filter');
 // Form submit event
 form.addEventListener('submit', addItem);
 // Delete event
@@ -10,10 +10,32 @@ itemList.addEventListener('click', removeItem);
 filter.addEventListener('keyup', filterItems);
 
 // Add item
+function onSubmit(e)
+{
+  e.preventDefault();
+  const inputValue = document.getElementById(`item`).value;
+  const description=document.getElementById('description').value;
+  const li=document.createElement('li');
+  li.className=`list-group-item`;
+  const newText=document.createTextNode(inputValue);
+  const descriptionNode=document.createTextNode(description);
+  li.appendChild(newText);
+  li.appendChild(descriptionNode)
+  const deleteBtn=document.createElement('button');
+  deleteBtn.className='btn btn-danger btn-sm float-right delete'
+  delete.appendChild(document.createTextNode('X'));
+  li.appendChild(deleteBtn);
+}
 function addItem(e){
   e.preventDefault();
+  const newText = document.createTextNode(inputValue)
+const descriptionNode =document.createTextNode(description)
 
-  // Get input value
+li.appendChild(newText);
+li.appendChild(descriptionNode)
+const deleteBtn =document.createElement('button');
+deleteBtn.className=``
+// Get input value
   var newItem = document.getElementById('item').value;
 
   // Create new li element
@@ -53,7 +75,7 @@ function removeItem(e){
 function filterItems(e){
   // convert text to lowercase
   var text = e.target.value.toLowerCase();
-  // Get lis
+  // Get lisT
   var items = itemList.getElementsByTagName('li');
   // Convert to an array
   Array.from(items).forEach(function(item){
