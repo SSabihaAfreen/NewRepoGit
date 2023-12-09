@@ -1,0 +1,16 @@
+<html><head>
+    <title>Local Storage Example</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    let myObj={
+        name:"Adnan khan",
+        age:6
+    };
+    let myObj_serialized=JSON.stringify(myObj);
+    localStorage.setItem("myObj",myObj_serialized);
+    let myObj_deserialized=JSON.parse(localStorage.getItem("myObj"));
+    console.log(myObj_deserialized);
+</script>
+</html>
